@@ -1,15 +1,15 @@
 {
-  "name": "throng",
-  "version": "5.0.0",
+  "name": "@talabes/throng",
+  "version": "1.0.0",
   "description": "A simple worker-manager for clustered apps",
   "keywords": [
     "cluster",
     "worker",
     "process"
   ],
-  "repository": "hunterloftis/throng",
-  "homepage": "https://github.com/hunterloftis/throng",
-  "bugs": "https://github.com/hunterloftis/throng/issues",
+  "repository": "tomasAlabes/throng",
+  "homepage": "https://github.com/tomasAlabes/throng",
+  "bugs": "https://github.com/tomasAlabes/throng/issues",
   "main": "lib/throng.js",
   "files": [
     "lib"
@@ -21,7 +21,7 @@
   "engines": {
     "node": ">= 10"
   },
-  "author": "Hunter Loftis <hunter@hunterloftis.com>",
+  "author": "Tomas Alabes <tomas.alabes@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "chai": "^4.2.0",

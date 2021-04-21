@@ -1,9 +1,6 @@
 # Throng
 
-[![npm package](https://img.shields.io/npm/v/throng.svg?style=flat-square)](https://www.npmjs.org/package/throng)
-[![Dependency Status](https://david-dm.org/hunterloftis/throng.svg?style=flat-square)](https://david-dm.org/hunterloftis/throng)
-[![devDependency Status](https://david-dm.org/hunterloftis/throng/dev-status.svg?style=flat-square)](https://david-dm.org/hunterloftis/throng#info=devDependencies)
-[![Build Status](https://travis-ci.org/hunterloftis/throng.svg?branch=master)](https://travis-ci.org/hunterloftis/throng)
+Open source fork of <https://github.com/hunterloftis/throng>
 
 Dead-simple one-liner for clustered Node.js apps.
 
@@ -11,12 +8,12 @@ Forks N workers and creates new ones if they go down.
 Correctly handles signals from the OS.
 
 ```js
-const throng = require('throng')
+const throng = require('@talabes/throng')
 
 throng(id => console.log(`Started worker ${id}`))
 ```
 
-```
+```shell
 $ node examples/basic
 Started worker 1
 Started worker 2
@@ -26,25 +23,25 @@ Started worker 4
 
 ## Installation
 
-```
-$ npm install --save throng
+```shell
+npm install --save throng
 ```
 
 ## Use
 
-### Fork 1 worker per CPU:
+### Fork 1 worker per CPU
 
 ```js
 throng(workerStartFunction)
 ```
 
-### Specify the number of workers:
+### Specify the number of workers
 
 ```js
 throng({ worker: workerStartFunction, count: 3 })
 ```
 
-### More options:
+### More options
 
 ```js
 throng({
@@ -55,7 +52,7 @@ throng({
 })
 ```
 
-### Handling signals:
+### Handling signals
 
 (for cleaning up before disconnecting a worker on a SIGTERM, for instance)
 
@@ -120,7 +117,7 @@ function worker(id, disconnect) {
 }
 ```
 
-```
+```shell
 $ node examples/complex
 Started master
 Started worker 1
@@ -139,14 +136,14 @@ Master cleanup.
 
 Throng forks replacements for workers that crash so your cluster can continue working through failures.
 
-```
+```shell
 $ node examples/crashy
 -1--2--3--4--2--1--3--4--crash!--1--3--4--crash!--5--3--4--6--5--3--4--crash!--6--crash!--crash!--7--6--8--9--7--6--8--9--crash!--7--6--9--10--7--6--9--10--crash!--7--9--10--11--7--crash!--9--crash!--7--12--9--13--crash!--12--9--crash!--crash!--crash!--14--crash!--12--15--crash!--14--18--15--19--14--18--15--crash!--19--14--crash!--15--20--14--21--15--20--14--21--15--20--14--21--15--20--14--21--15-
 ```
 
 ## Test
 
-```
+```shell
 $ docker-compose run --rm dev
 
 node@docker:/home/app$ npm test
