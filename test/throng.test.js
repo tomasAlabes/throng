@@ -206,6 +206,7 @@ function run(file) {
     child.on('close', () => {
       resolve([ out, Date.now() - startTime ])
     })
+    child.on('error', reject)
   })
 
   return [ child, done ]

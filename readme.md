@@ -1,6 +1,11 @@
 # Throng
 
-Open source fork of <https://github.com/hunterloftis/throng>
+Fork of <https://github.com/hunterloftis/throng>
+
+* with typescript definition
+* using `exit` for reviving forks (recommended by [node docs](https://nodejs.org/api/cluster.html#cluster_event_exit_1))
+* `delay` option if you want more progressive forking
+* check releases!
 
 Dead-simple one-liner for clustered Node.js apps.
 
@@ -78,7 +83,8 @@ throng({
   count: os.cpus().length,        // Number of workers
   lifetime: Infinity,             // Min time to keep cluster alive (ms)
   grace: 5000,                    // Grace period between signal and hard shutdown (ms)
-  signals: ['SIGTERM', 'SIGINT']  // Signals that trigger a shutdown (proxied to workers)
+  signals: ['SIGTERM', 'SIGINT'], // Signals that trigger a shutdown (proxied to workers)
+  delay: 0                        // Delay between each fork is created (milliseconds)
 })
 ```
 
@@ -139,12 +145,4 @@ Throng forks replacements for workers that crash so your cluster can continue wo
 ```shell
 $ node examples/crashy
 -1--2--3--4--2--1--3--4--crash!--1--3--4--crash!--5--3--4--6--5--3--4--crash!--6--crash!--crash!--7--6--8--9--7--6--8--9--crash!--7--6--9--10--7--6--9--10--crash!--7--9--10--11--7--crash!--9--crash!--7--12--9--13--crash!--12--9--crash!--crash!--crash!--14--crash!--12--15--crash!--14--18--15--19--14--18--15--crash!--19--14--crash!--15--20--14--21--15--20--14--21--15--20--14--21--15--20--14--21--15-
-```
-
-## Test
-
-```shell
-$ docker-compose run --rm dev
-
-node@docker:/home/app$ npm test
 ```

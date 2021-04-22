@@ -1,9 +1,9 @@
 const throng = require('../../lib/throng')
 
 throng({
-    workers: 3,
+    count: 3,
     signals: ['SIGUSR2'],
-    start: (id, disconnect) => {
+    worker: (id, disconnect) => {
         let exited = false
         
         console.log('worker')

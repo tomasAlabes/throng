@@ -1,6 +1,6 @@
 {
   "name": "@talabes/throng",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A simple worker-manager for clustered apps",
   "keywords": [
     "cluster",
@@ -26,8 +26,5 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^8.1.3"
-  },
-  "dependencies": {
-    "lodash": "^4.17.20"
   }
 }
