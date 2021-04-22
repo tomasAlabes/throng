@@ -12,7 +12,8 @@
   "bugs": "https://github.com/tomasAlabes/throng/issues",
   "main": "lib/throng.js",
   "files": [
-    "lib"
+    "lib",
+    "throng.d.ts"
   ],
   "scripts": {
     "test": "mocha",
